@@ -1,0 +1,644 @@
+'use strict'
+// / const sign_in_btn = document.querySelector("#sign-in-btn");
+// const sign_up_btn = document.querySelector("#sign-up-btn");
+// const container = document.querySelector(".container");
+
+// sign_up_btn.addEventListener('click', () =>{
+//     container.classList.add("sign-up-mode");
+
+// })
+
+// sign_in_btn.addEventListener('click',()=> {
+//     container.classList.remove("sign-up-mode");
+// })
+
+const sign_in_btn = document.querySelector("#sign-in-btn");
+const sign_up_btn = document.querySelector("#sign-up-btn");
+const container = document.querySelector(".container");
+
+sign_up_btn.addEventListener("click", () => {
+  container.classList.add("sign-up-mode");
+});
+
+sign_in_btn.addEventListener("click", () => {
+  container.classList.remove("sign-up-mode");
+});
+// ********************************Validation  de la form SignUp ***********************/
+
+// document.getElementById("sign-up-form").addEventListener("submit",function(e){
+ 
+ 
+
+
+//   var erreur; 
+//  var nom =document.getElementById("nomUp");
+//   var prenom =document.getElementById("prenomUp");
+//   var etablissement =document.getElementById("etablissement");
+//   var email =document.getElementById("email");
+//   var specialite =document.getElementById("specialite");
+//   var passwordUp =document.getElementById("passwordUp");
+//   var passwordConf =document.getElementById("passwordConf");
+
+  
+
+
+//   if(!nom.value){
+//      e.preventDefault();
+//      alert("vide");
+//      document.getElementById("nomP").innerHTML="Veillez rensigner un nom";
+//      return false;
+//     }
+
+  //traiter une formulaire dd'une facon asynchrone 
+ 
+
+  document.getElementById("sign-up-form").addEventListener("submit",function(e){
+    e.preventDefault();
+    var data = new FormData(this);
+  // creation d'un objet http request qui va nous permettre de faire un appel asynchrone
+     
+    var xhr = new XMLHttpRequest();
+    //ecouter lorsqu'on a un changement d'état
+    xhr.onreadystatechange = function (){
+      if(this.readyState == 4 && this.status == 200){
+      console.log(this.response);
+      if(this.response.nomVide){
+        console.log("nom is empty");
+        document.getElementById("nomP").innerHTML =this.response.nomVide;
+       
+
+
+      }
+      else if(this.response.nom){
+        console.log("nom est invalide");
+        document.getElementById("nomP").innerHTML =this.response.nom;
+      }
+
+      //****************Prenom******************** */
+      
+      if(this.response.prenomVide){
+        console.log("nom is empty");
+        document.getElementById("nomP").innerHTML =this.response.nomVide;
+       
+
+
+      }
+      else if(this.response.prenom){
+        console.log("prenom est invalide");
+        document.getElementById("prenomP").innerHTML =this.response.nom;
+      }
+
+
+      //****************Etablissement******************** */
+      
+      if(this.response.etablissementVide){
+        console.log("etablissement is empty");
+        document.getElementById("etablissementP").innerHTML =this.response.etablissementVide;
+       
+
+
+      }
+      else if(this.response.etablissement){
+        console.log("etablissement est invalide");
+        document.getElementById("etablissementP").innerHTML =this.response.etablissement;
+      }
+
+        
+      //****************specialite******************** */
+      
+      if(this.response.specialiteVide){
+        console.log("specialite is empbty");
+        document.getElementById("specialiteP").innerHTML =this.response.specialiteVide;
+       
+
+
+      }
+      else if(this.response.specialite){
+        console.log("specialite est invalide");
+        document.getElementById("specialiteP").innerHTML =this.response.specialite;
+      }
+
+
+      // *******************EMAIL********************
+
+      if(this.response.emailVide){
+        console.log("nom is empty");
+        document.getElementById("emailP").innerHTML =this.response.emailVide;
+       
+      }
+      else if(this.response.emailInv){
+        console.log("prenom est invalide");
+        document.getElementById("emailP").innerHTML =this.response.emailInv;
+      }
+      else if (this.response.email){
+        console.log("prenom existe");
+        document.getElementById("emailP").innerHTML =this.response.email;
+      }
+       
+      // if(this.response.password){
+      //   console.log("password invalide");
+      //   document.getElementById("passwordP").innerHTML= this.response.password;
+      // }
+
+      if(this.response.passwordConf){
+        console.log("les mot de passes sont diff");
+        document.getElementById("passwordConfP").innerHTML = this.response.passwordConf;
+      }
+
+
+
+      }
+      else if(this.readyState == 4){
+        alert("Une erreur est servenue");
+
+      }
+
+     
+
+    };
+    // status indicates if server response is ok.
+
+    xhr.open("POST","fichPhp/signUp.php",true);
+    // il faut aussi definir le types des parametres qu'on va passer avec n
+    //  xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+     // c'est un formulaire
+    // a l'aide de la fonction send on va passer les paramateres
+    xhr.responseType = "json";
+    xhr.send(data);
+    return false;
+  })
+
+
+
+
+  
+
+ 
+
+__________________________ 
+signup.php 
+<?php 
+require_once 'connexion.php';
+
+
+
+
+if (!empty($_POST)){
+    $errors = array();
+    
+
+    $nom = htmlspecialchars(strip_tags(trim(strtolower($_POST['nomUp']))));
+    $prenom = htmlspecialchars(strip_tags(trim(strtolower($_POST['prenomUp']))));
+    $etablissement = htmlspecialchars(strip_tags(trim(strtolower($_POST['etablissement']))));
+    $specialite = htmlspecialchars(strip_tags(trim(strtolower($_POST['specialite']))));
+    $email = htmlspecialchars(strip_tags(trim(strtolower($_POST['emailUp']))));
+    $password = htmlspecialchars(strip_tags(trim(strtolower($_POST['passwordUp']))));
+    $passwordConf = htmlspecialchars(strip_tags(trim(strtolower($_POST['passwordConf']))));
+  
+
+     /*************Verification de nom **************** */
+
+    if(empty($nom)){
+        $errors['nomVide']="Veuillez saisir votre nom";
+
+    }
+    else if(!preg_match('/^[a-zA-Z0-9_]+$/',$nom) || strlen($nom)>25 || strlen($nom)<3)
+    {
+       $errors['nom']="Désolé, votre nom semble invalide,essayer avec un autre";
+    }
+
+    
+
+    
+    // else {
+        
+    //         $query ="SELECT id FROM users WHERE nom='$nom'  ";
+    //         $result = mysqli_query($con,$query);
+    //         $user = mysqli_fetch_array($result);
+    //         if($user){
+    //             $errors['username']='Ce nom existe déjà';
+            
+    //         }
+    //        }
+   
+
+
+        // ****************************VERIFICATION DE PRENOM ******************************
+
+           if(empty($prenom)){
+            $errors['prenomVide']="Veuillez saisir votre prenom";
+    
+        }
+        else if(!preg_match('/^[a-zA-Z0-9_]+$/',$prenom) || strlen($prenom)>25 || strlen($prenom)<3)
+        {
+           $errors['prenom']="Désolé, votre prenom semble invalide,essayer avec un autre";
+        }
+    
+       
+      
+
+    //   ******************************* VERIFICATION DE MAIL **********************************
+
+        if(empty($email)){
+            $errors['emailVide']="Veuillez saisir votre adresse email";
+    
+        }
+
+        else if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+            
+            $errors['emailInv']="Adresse email invalide, réussiez!!";
+        }
+
+       
+         else {
+        
+            $query ="SELECT id FROM users WHERE email='$email'  ";
+            $result = mysqli_query($con,$query);
+            $user = mysqli_fetch_array($result);
+            if($user){
+                $errors['email']='Cet email existe déjà';
+            
+            }
+           }
+
+        //    **************************** VERIFICATION D'ETABLISSEMENT***********************************
+
+        if(empty($etablissement)){
+            $errors['etablissementVide']="Veuillez saisir votre établissement";
+    
+        }
+        else if(!preg_match('/^[a-zA-Z0-9_]+$/',$etablissement)|| strlen($etablissement)>30 || strlen($etablissement)<2)
+        {
+           $errors['etablissement']="Désolé, le nom d'établissement semble invalide";
+        }
+    
+        
+        
+         /****************************************VERIFICATION de specialite******************************** */
+
+         if(empty($specialite)){
+            $errors['specialiteVide']="Veuillez saisir votre spécialité";
+    
+        }
+        else if(!preg_match('/^[a-zA-Z0-9_]+$/',$specialite)|| strlen($specialite)>30 || strlen($specialite)<2)
+        {
+           $errors['specialite']="Désolé, le nom de spécialiteé semble invalide";
+        }
+    
+        /*************************************** VERIFICATION DU MOT DE PASSE******************************* */
+        // if(empty($password) || !preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,12}$/',$password)){
+                                            
+        //     $errors['password']="<ul>un mot de passe valide aura<li>de 8 à 15 caractères</li><li>au moins une lettre minuscule</li><li>au moins une lettre majuscule</li><li>au moins un chiffre</li><li>au moins un de ces caractères spéciaux.</li><ul>";
+
+        // }
+         
+        if($password != $passwordConf){
+            $errors['passwordConf'] = "Les mots de passe ne se correspondent pas ";
+        }
+
+   
+      
+
+        // **************insertion de la base de données *********************
+        if(empty($errors)){
+   
+              $query =  "INSERT INTO users(nom,prenom,email,etablissement,specialite,pw)VALUES('$nom','$prenom','$email','$etablissement','$specialite','$password')";
+              mysqli_query($con,$query);          
+                
+              
+               
+               mysqli_close($con);
+               die("votre compte a été bien créer");
+            
+               header("location: reussi.php");
+               }
+
+    
+
+           echo json_encode($errors);
+
+
+         
+
+}
+
+________________________________________
+now 
+<?php 
+require_once 'connexion.php';
+
+
+
+
+if (!empty($_POST)){
+    $errors = array();
+    
+
+    $nom = htmlspecialchars(strip_tags(trim(strtolower($_POST['nomUp']))));
+    $prenom = htmlspecialchars(strip_tags(trim(strtolower($_POST['prenomUp']))));
+    $etablissement = htmlspecialchars(strip_tags(trim(strtolower($_POST['etablissement']))));
+    $specialite = htmlspecialchars(strip_tags(trim(strtolower($_POST['specialite']))));
+    $email = htmlspecialchars(strip_tags(trim(strtolower($_POST['emailUp']))));
+    $password = htmlspecialchars(strip_tags(trim(strtolower($_POST['passwordUp']))));
+    $passwordConf = htmlspecialchars(strip_tags(trim(strtolower($_POST['passwordConf']))));
+  
+
+     /*************Verification de nom **************** */
+
+    if(empty($nom)){
+        $errors['nomVide']="Veuillez saisir votre nom";
+
+    }
+    else if(!preg_match('/^[a-zA-Z0-9_]+$/',$nom) || strlen($nom)>25 || strlen($nom)<3)
+    {
+       $errors['nom']="Désolé, votre nom semble invalide,essayer avec un autre";
+    }
+
+    
+
+    
+    // else {
+        
+    //         $query ="SELECT id FROM users WHERE nom='$nom'  ";
+    //         $result = mysqli_query($con,$query);
+    //         $user = mysqli_fetch_array($result);
+    //         if($user){
+    //             $errors['username']='Ce nom existe déjà';
+            
+    //         }
+    //        }
+   
+
+
+        // ****************************VERIFICATION DE PRENOM ******************************
+
+           if(empty($prenom)){
+            $errors['prenomVide']="Veuillez saisir votre prenom";
+    
+        }
+        else if(!preg_match('/^[a-zA-Z0-9_]+$/',$prenom) || strlen($prenom)>25 || strlen($prenom)<3)
+        {
+           $errors['prenom']="Désolé, votre prenom semble invalide,essayer avec un autre";
+        }
+    
+       
+      
+
+    //   ******************************* VERIFICATION DE MAIL **********************************
+
+        if(empty($email)){
+            $errors['emailVide']="Veuillez saisir votre adresse email";
+    
+        }
+
+        else if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+            
+            $errors['emailInv']="Adresse email invalide, réussiez!!";
+        }
+
+       
+         else {
+        
+            $query ="SELECT id FROM users WHERE email='$email'  ";
+            $result = mysqli_query($con,$query);
+            $user = mysqli_fetch_array($result);
+            if($user){
+                $errors['email']='Cet email existe déjà';
+            
+            }
+           }
+
+        //    **************************** VERIFICATION D'ETABLISSEMENT***********************************
+
+        if(empty($etablissement)){
+            $errors['etablissementVide']="Veuillez saisir votre établissement";
+    
+        }
+        else if(!preg_match('/^[a-zA-Z0-9_]+$/',$etablissement)|| strlen($etablissement)>30 || strlen($etablissement)<2)
+        {
+           $errors['etablissement']="Désolé, le nom d'établissement semble invalide";
+        }
+    
+        
+        
+         /****************************************VERIFICATION de specialite******************************** */
+
+         if(empty($specialite)){
+            $errors['specialiteVide']="Veuillez saisir votre spécialité";
+    
+        }
+        else if(!preg_match('/^[a-zA-Z0-9_]+$/',$specialite)|| strlen($specialite)>30 || strlen($specialite)<2)
+        {
+           $errors['specialite']="Désolé, le nom de spécialiteé semble invalide";
+        }
+
+    
+        /*************************************** VERIFICATION DU MOT DE PASSE******************************* */
+        // if(empty($password) || !preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,12}$/',$password)){
+                                            
+        //     $errors['password']="<ul>un mot de passe valide aura<li>de 8 à 15 caractères</li><li>au moins une lettre minuscule</li><li>au moins une lettre majuscule</li><li>au moins un chiffre</li><li>au moins un de ces caractères spéciaux.</li><ul>";
+
+        // }
+         
+        if($password != $passwordConf){
+            $errors['passwordConf'] = "Les mots de passe ne se correspondent pas ";
+        }
+
+   
+      
+
+        // **************insertion de la base de données *********************
+        if(empty($errors)){
+   
+              $query =  "INSERT INTO users(nom,prenom,email,etablissement,specialite,pw)VALUES('$nom','$prenom','$email','$etablissement','$specialite','$password')";
+              mysqli_query($con,$query);          
+                
+              
+               
+               mysqli_close($con);
+               die("votre compte a été bien créer");
+            
+               header("Location: reussi.php");
+               }
+
+    
+
+           echo json_encode($errors);
+
+
+         
+
+}
+
+__________________________________________________________
+now2
+<?php 
+require_once 'connexion.php';
+
+
+
+
+if (!empty($_POST)){
+    $errors = array();
+    
+
+    $nom = htmlspecialchars(strip_tags(trim(strtolower($_POST['nomUp']))));
+    $prenom = htmlspecialchars(strip_tags(trim(strtolower($_POST['prenomUp']))));
+    $etablissement = htmlspecialchars(strip_tags(trim(strtolower($_POST['etablissement']))));
+    $specialite = htmlspecialchars(strip_tags(trim(strtolower($_POST['specialite']))));
+    $date = htmlspecialchars(strip_tags(trim(strtolower($_POST['date']))));
+    $email = htmlspecialchars(strip_tags(trim(strtolower($_POST['emailUp']))));
+    $password = htmlspecialchars(strip_tags(trim(strtolower($_POST['passwordUp']))));
+    $passwordConf = htmlspecialchars(strip_tags(trim(strtolower($_POST['passwordConf']))));
+  
+
+     /*************Verification de nom **************** */
+
+    if(empty($nom)){
+        $errors['nomVide']="Veuillez saisir votre nom";
+
+    }
+    else if(!preg_match('/^[a-zA-Z0-9_]+$/',$nom) || strlen($nom)>25 || strlen($nom)<3)
+    {
+       $errors['nom']="Désolé, votre nom semble invalide,essayer avec un autre";
+    }
+
+    
+
+    
+    // else {
+        
+    //         $query ="SELECT id FROM users WHERE nom='$nom'  ";
+    //         $result = mysqli_query($con,$query);
+    //         $user = mysqli_fetch_array($result);
+    //         if($user){
+    //             $errors['username']='Ce nom existe déjà';
+            
+    //         }
+    //        }
+   
+
+
+        // ****************************VERIFICATION DE PRENOM ******************************
+
+           if(empty($prenom)){
+            $errors['prenomVide']="Veuillez saisir votre prenom";
+    
+        }
+        else if(!preg_match('/^[a-zA-Z0-9_]+$/',$prenom) || strlen($prenom)>25 || strlen($prenom)<3)
+        {
+           $errors['prenom']="Désolé, votre prenom semble invalide,essayer avec un autre";
+        }
+    
+       
+      
+
+    //   ******************************* VERIFICATION DE MAIL **********************************
+
+        if(empty($email)){
+            $errors['emailVide']="Veuillez saisir votre adresse email";
+    
+        }
+
+        else if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+            
+            $errors['emailInv']="Adresse email invalide, réussiez!!";
+        }
+
+       
+         else {
+        
+            $query ="SELECT id FROM users WHERE email='$email'  ";
+            $result = mysqli_query($con,$query);
+            $user = mysqli_fetch_array($result);
+            if($user){
+                $errors['email']='Cet email existe déjà';
+            
+            }
+           }
+
+           //**************************************Verification de date de naissance ******************************************* */
+         
+            function isValid($date, $format = 'Y-m-d'){
+                $dt = DateTime::createFromFormat($format, $date);
+                return $dt && $dt->format($format) === $date;
+            }
+           if(!isValid($date)){
+               $errors['date']="Date de naissance invalide";
+
+           }
+           
+
+
+        /**************************** VERIFICATION D'ETABLISSEMENT*********************************/
+
+        if(empty($etablissement)){
+            $errors['etablissementVide']="Veuillez saisir votre établissement";
+    
+        }
+        else if(!preg_match('/^[a-zA-Z0-9_]+$/',$etablissement)|| strlen($etablissement)>30 || strlen($etablissement)<2)
+        {
+           $errors['etablissement']="Désolé, le nom d'établissement semble invalide";
+        }
+    
+        
+    
+         /****************************************VERIFICATION de specialite******************************** */
+
+         if(empty($specialite)){
+            $errors['specialiteVide']="Veuillez saisir votre spécialité";
+    
+        }
+        else if(!preg_match('/^[a-zA-Z0-9_]+$/',$specialite)|| strlen($specialite)>30 || strlen($specialite)<2)
+        {
+           $errors['specialite']="Désolé, le nom de spécialiteé semble invalide";
+        }
+    
+        /*************************************** VERIFICATION DU MOT DE PASSE******************************* */
+        // if(empty($password) || !preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,12}$/',$password)){
+                                            
+        //     $errors['password']="<ul>un mot de passe valide aura<li>de 8 à 15 caractères</li><li>au moins une lettre minuscule</li><li>au moins une lettre majuscule</li><li>au moins un chiffre</li><li>au moins un de ces caractères spéciaux.</li><ul>";
+
+        // }
+         
+        if($password != $passwordConf){
+            $errors['passwordConf'] = "Les mots de passe ne se correspondent pas ";
+        }
+
+   
+      
+
+        // **************insertion de la base de données *********************
+        if(empty($errors)){
+   
+              $query =  "INSERT INTO users(nom,prenom,email,etablissement,specialite,pw)VALUES('$nom','$prenom','$email','$etablissement','$specialite','$password')";
+              mysqli_query($con,$query);          
+                
+              
+               
+               mysqli_close($con);
+               die("votre compte a été bien créer");
+            
+               header("location: reussi.php");
+               }
+
+    
+
+           echo json_encode($errors);
+
+
+         
+
+}
+
+
+
+
+
+
+     /*************************************** VERIFICATION DU MOT DE PASSE******************************* */
+        // if(empty($password) || !preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,12}$/',$password)){
+                                            
+        //     $errors['password']="<ul>un mot de passe valide aura<li>de 8 à 15 caractères</li><li>au moins une lettre minuscule</li><li>au moins une lettre majuscule</li><li>au moins un chiffre</li><li>au moins un de ces caractères spéciaux.</li><ul>";
+
+        // }

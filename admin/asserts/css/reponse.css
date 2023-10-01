@@ -1,0 +1,41 @@
+#formulaire {
+    background-color: white;
+    margin-top: 30px;
+    padding: 30px 40px;
+    border-radius: 5px;
+    box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+}
+
+.input-field {
+    margin-bottom: 30px;
+    
+}
+input {
+    width: 80%;
+    background-color: #eee;
+    /* height: 40px; */
+    border-radius: 5px;
+    padding-left: 10px;
+}
+.message {
+    background-color: #eee;
+    /* height: 50px; */
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-top: 5px;
+    width: 80%;
+    color: black;
+}
+textarea.message {
+    /* height: 200px; */
+    width: 80%;
+}
+label {
+    font-size: 14px;
+    color : black;
+    
+
+}
+#repondre {
+    background-color: #f387f5;
+}

@@ -1,0 +1,161 @@
+input[type="radio"] {
+    display: none;
+  }
+
+  input[type="radio"]+ label {
+   
+   
+  
+    padding: 3px;
+
+    display: flex;
+   
+    min-height: 30px;
+    font-size: 16px;
+    margin-top: auto;
+    align-items: center;
+    margin-left: 5px;
+    border-radius: 5px;
+ font-family: Calibri;
+
+ color: rgba(24, 22, 22, 0.92);
+ 
+ 
+  }
+
+
+  .formDiv{
+    margin: 5px;
+    width: 100%;
+
+    display: flex;
+  
+  }
+  label{
+      width: 100%;
+      padding: 5px;
+  }
+
+  .classA{
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+     margin: auto;
+      background-color: #6fa9a5;
+      /* color:#1f1b73; */
+      font-weight: 600;
+      text-align: center;
+ padding: auto;
+ display: flex;
+ justify-items: center;
+ margin-right: 10px;
+ box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  }
+  .classA p{
+     margin: auto;
+     /* font-size: 16px; */
+  }
+  .question{
+     
+      font-weight: 700;
+     
+   
+  }
+  .blockQuestion{
+    margin: 10px;
+      padding: 5px;
+      border-radius: 5px;
+     border: 1px solid rgba(25, 25, 24, 0.6);
+     border: 1px solid rgb(63, 62, 62);
+    
+  }
+  .container_div_question{
+      width: 50%;
+      /* max-width: 1500px; */
+  }
+  .afficherTous-exam{
+    text-align: center;
+    display: block;
+    /* margin: 1rem auto; */
+    color: blue;
+    text-decoration: underline;
+  }
+  
+  @media screen and (max-width: 650px){
+   
+    .p1{
+      font-size: 20px;
+  }
+  .p1 p{
+    margin: 8px 0;
+  }
+  .question{
+    font-size: 15px;
+    font-weight: 600;
+ 
+  }
+    
+  .classA{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    border-radius: 0%;
+    font-weight: 500;
+   
+margin-right: 4px;
+}
+.classA p{
+   font-size: 18px;
+}
+label{
+  
+  padding: 1px;
+}
+
+
+}
+@media screen and (max-width: 350px){
+  .p1{
+    font-size: 17px;
+}
+.p1 p{
+  margin: 4px 0;
+}
+.p1 .p1_i{
+   margin:auto 5px auto 4% ;
+ 
+}
+.question{
+  font-size: 13px;
+  font-weight: 560;
+
+}
+  
+.classA{
+  width: 24px;
+  height: 24px;
+  border-radius: 0%;
+ 
+  font-weight: 500;
+  margin-top: 5px;
+margin-right: 4px;
+}
+input[type="submit"]{
+  margin: 4px auto;
+  font-size: 13px;
+  padding: 4px;
+ 
+  margin-right: 3%;
+ font-weight: 560;
+
+ width: 40%;
+
+}
+.formDiv{
+  margin: 0px;
+  
+
+}
+}

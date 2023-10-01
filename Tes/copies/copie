@@ -1,0 +1,231 @@
+:root{
+    --primary:#ffb24a; 
+    --light:#f0f0f0 ;
+    --light1: #fff;
+    --dark: #1f1b73;
+
+}
+
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Popins",sans-serif;
+}
+.logo{
+    display: flex;
+}
+.title{
+    display: block;
+      margin-top: 13px;
+     
+    color: #1f1b73;
+    font-size: 18px ;
+    margin-left: 6.4px;
+    letter-spacing: 2px;
+}
+.container{
+    height: 56px;
+    background-color: var(--light1);
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center ;
+    justify-content: space-between;
+   
+
+}
+.nav{
+    padding:13px 26px;
+}
+.btn{
+    display: block;
+    position: relative; 
+    z-index: 1; 
+    user-select: none;
+    appearance: none;
+    outline: none;
+    border:none;
+    background:none;
+}
+
+.btn span{
+    display: block;
+    width:27px;
+    height:4px;
+    margin-bottom: 5px;
+    background-color: var(--light);
+    border-radius: 6px;
+    z-index: 1;
+    transform-origin: 0 0;
+    transition: 0.4s;
+}
+
+.btn:hover span:nth-child(2){
+    transform: translateX(10px);
+    background-color: var(--dark);
+}
+
+.btn.active span:nth-child(1){
+    transform: translate(0px,-2px) rotate(45deg);
+
+}
+.btn.active span:nth-child(3){
+    transform: translate(-3px,3px) rotate(-45deg);
+}
+.btn.active span:nth-child(2){
+opacity: 0;
+transform: translateX(15px);
+}
+
+.btn.active span{
+    background-color: #1f1b73;
+}
+@media (min-width: 768px) {
+    
+.btn{
+    display: none;
+}
+.menu{
+    display: flex;
+}
+
+}
+@media (max-width: 768px){
+   .menu{ display: none;
+    flex: 1 1 0%;
+    width: 340px; 
+     justify-content: flex-end; 
+   }
+   .profil{
+       display: none;
+   }
+}
+
+.menu .lien{
+    display: flex;
+    align-items: center;
+    margin: 0 13px;
+    font-weight: 600; 
+    font-size: 14px;  
+    
+}
+.menu .lien a{
+    margin-left: 2px;
+    text-decoration: none;
+    border-radius: 99px;
+    transition: 0.4s;
+    color: var(--dark)
+}
+
+.material-icons{
+    color: var(--primary);
+}
+.logo{
+    height: 45px;
+    width: 45px;
+  }
+
+  .profil{
+      padding: 8px 5.5px;
+      
+      color: var(--light1);
+      margin-left: 16px;
+    height: 33px;
+    width: 33px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #1f1b73;
+}
+
+/******************drop Down Menu*******************/
+ul{
+    list-style: none;
+}
+  
+ul .dropdown {
+width: 100%;
+background-color: var(--light);
+position: absolute;
+display: none;
+}
+
+.lien.settings{
+    position: relative;
+}
+
+.middle-container{
+    position:relative;
+    padding-top: 25px;
+    padding-left: 170px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 180px;
+    background-color: var(--primary);
+    margin-top: 5px;
+    color: #1f1b73;
+}
+
+h1{
+    font-size: 44px;
+}
+
+h2{
+    margin-top: 8px;
+}
+
+.contenu{
+    position: absolute;
+    bottom: 5px;
+    left: 158px;
+}
+
+.links li{
+    
+    display: inline-block;
+    position: relative;
+    margin: 0 15px;
+}
+
+.links li a {
+    text-decoration: none;
+    color: #f0f0f0;
+    font-weight: 600;
+    font-size: 18px;
+
+}
+.links li a:after{
+    display:block;
+    content: '';
+    background-color: var(--dark);
+    width: 0;
+    height: 2px;
+    position:absolute;
+    bottom:0;
+    left:0;
+    transition: width 0.5s;
+}
+
+.nav-links li a:hover::after{
+    width: 100%;
+    
+}
+.links li a:hover::after{
+    width: 100%;
+    
+}
+
+.links #encours a::after,.links #encours a{
+  width: 100%;
+  color: #1f1b73;
+}
+
+

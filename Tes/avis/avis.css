@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap');
+:root{
+    --primary:#ffb24a; 
+    --light:#f0f0f0 ;
+    --light1: #fff;
+    --dark: #1f1b73;
+    --box-shadow : 0 2rem 3rem var(--color-light);
+    --card-padding : 1.8rem;
+    --padding-1 : 1.2rem;
+    --grey: rgb(229, 228, 228);
+
+   
+
+   
+
+
+}
+
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "popins",sans-serif;
+}
+
+.avis-container{
+    background-color: var(--grey);
+    max-width: 990px;
+    margin: 0 auto;
+    padding: 16px;
+    border-radius: 10px;
+    /* border-radius: var(--card--border-radius);
+    padding: var(--card-padding);
+   
+    box-shadow: var(--box-shadow); */
+    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; 
+     margin-bottom: 20px;
+   
+}
+
+ .etoiles{
+     color: #c6c6c6;
+     font-size: 20px;
+     margin-top: 10px;
+     margin-bottom: 10px;
+ }
+/* .etoiles i:nth-child(1)
+{
+    color: #fabd6e;
+    font-size:  24px;
+} */
+textarea{
+    width: 40%;
+    padding: 8px;
+    font-family: sans-serif;
+    border-radius: 7px;
+    
+    background-color: rgb(250, 250, 250);
+    display: block;
+    
+}
+
+textarea::placeholder{
+    color: #aaa;
+    font-weight: 500;
+    font-size: 14px;
+}
+.button{
+    
+  
+  
+    width: 40% ;
+}
+.sauvg{
+    position: relative;
+    width:120px;
+    height: 32px;
+    border:none;
+    outline:none;
+    border-radius: 49px;
+    cursor: pointer;
+     background-color: var(--primary);
+     color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: 0.5s;
+    margin-top: 10px ;
+    display: block;
+    margin: 10px auto;
+   
+    
+    /* margin-left:333px; */
+
+
+     /* ajouuterrr */
+    /* padding: 5px ;
+    background-color: var(--primary);
+    width: 100px;
+    margin-top: 10px ;
+    height: 30px;
+    display: block;
+    margin-left:379px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    transition: 0.4s; */
+}
+.sauvg:hover {
+    background-color:#2365d7 ;
+  }
+h3{
+    font-size: 19px;
+    color: var(--dark);
+}
+.user{
+    max-width:650px;
+    margin-top: 20px;
+    display: flex;
+    
+}
+.details{
+    
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-between; 
+    flex-direction: column;
+}
+
+.etoiles-user{
+    margin: 10px 0;
+    color: #c6c6c6;
+}
+.name{
+
+    font-size: 16px;
+}
+
+.users{
+    display: flex;
+    flex-direction: column;
+}
+hr{
+    margin: 30px;
+    width:890;
+}
+.left{
+    margin-left: 20px;
+}
+.description{
+    font-size: 14px;
+}
+.date{
+    font-size: 14px;
+    color: rgb(145, 143, 143);
+
+}
+
+.profil{
+    font-size: 16px;
+    padding: 8px 5.5px;
+      
+      color: var(--light1);
+      margin-left: 16px;
+    height: 36px;
+    width: 37px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #1f1b73;}
+.btn {
+    width:150px;
+    height: 49px;
+    border:none;
+    outline:none;
+    border-radius: 49px;
+    cursor: pointer;
+     background-color: var(--primary); 
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: 0.5s;
+   
+
+}
+.etoiles a { text-decoration: none; 
+    color: #c6c6c6;
+    }
+.active{
+    color: #fabd6e;
+} 
+.photoProfil{
+  
+    margin-left: 16px;
+  height: 37px;
+  width: 37px;
+  border-radius: 50%;
+  display: inline-block;
+
+  }
+
+
+
+  /* media quert */
+
+  @media (max-width: 767px){
+
+
+    .avis-container{
+        max-width: 100vw;
+    }
+
+   /* .donner-avis  h3{
+        font-size: 5vw;
+    } */
+
+    textarea{
+        max-width: 80vw;
+    }
+     textarea::placeholder{
+            font-size: 12px;
+
+    }
+  
+}
+    @media (max-width: 485px){
+       
+        .name {
+            font-size: 13px;
+        }
+        .date {
+            font-size: 10px;
+        }
+        .description {
+            font-size: 11px;
+        }
+    }
+@media (max-width: 400px){
+
+     textarea{
+        max-width: 95vw;
+    }
+     textarea::placeholder{
+            font-size: 10px;
+
+    }
+    .sauvg {
+        font-size: 10px;
+    }
+    /* .name {
+        font-size: 13px;
+    }
+    .date {
+        font-size: 10px;
+    }
+    .description {
+        font-size: 11px;
+    } */
+
+}
+
+@media (max-width: 340px){
+    .date{
+        font-size: 10px;
+        display: block;
+    }
+
+   
+}
+
+

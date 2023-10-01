@@ -1,0 +1,185 @@
+.div_ajouter_cours{
+
+
+    /* border-collapse: separate; */
+    /* text-indent: initial; */
+    /* border-spacing: 2px; */
+    background: var(--color-white);
+    width: 100%;
+    border-radius: var(--card--border-radius);
+    padding: var(--card-padding);
+   padding-bottom: 0;
+   padding-right: 0;
+    
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    /* margin-top: 50px; */
+
+}
+.div_ajouter_cours label{
+  /* font-size: 16px; */
+  font-weight: 600;
+}
+.div_ajouter_cours input[type='text']{
+  width: 97%;
+  font-size: 15PX;
+    border-style: solid;
+    border-width: 1px; 
+    
+  /* background-color: rgb(249, 253, 255); */
+  /* border-radius: 10px;*/
+padding: 10px 10px; 
+margin: 10px 0;
+/* background-color: var(--color-background);
+border-radius: 30px; */
+
+}
+
+textarea{
+  width: 97%;
+  font-size: 15PX;
+    border-style: solid;
+     border-width: 1px; 
+    border-color: rgb(207, 204, 204);
+  /* background-color: rgb(249, 253, 255); */
+  /* border-radius: 10px; */
+padding: 3px 10px; 
+ margin: 5px 0; 
+ /* background-color: var(--color-background);
+ border-radius: 20px; */
+
+}
+input[type="number"]{
+  width: 97%;
+  font-size: 15PX;
+    border-style: solid;
+     border-width: 1px; 
+    border-color: rgb(207, 204, 204);
+  /* background-color: rgb(249, 253, 255); */
+  /* border-radius: 10px; */
+padding: 10px; 
+ margin: 5px 0; 
+ /* background-color: var(--color-background);
+ border-radius: 20px; */
+
+}
+select {
+ 
+
+  /* text-rendering: auto; */
+  color: fieldtext;
+  letter-spacing: normal;
+  word-spacing: normal;
+  line-height: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  appearance: auto;
+  box-sizing: border-box;
+  align-items: center;
+  white-space: pre;
+  -webkit-rtl-ordering: logical;
+  background-color: field;
+  cursor: pointer;
+ 
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(207, 204, 204);
+  border-image: initial;
+  padding: 8px 30px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+.div_flex{
+  display: flex;
+  justify-content: end;
+}
+.div_ajouter_cours input[type='submit']{
+
+font-size: 14px;
+font-weight: 600;
+background-color: #6fa9a5;
+padding: 14px 20px;
+width: 20%;
+border-bottom-right-radius: var(--card-padding);
+border-top-left-radius:  var(--card-padding);
+cursor: pointer;
+}
+#upload{
+  width: 100%;
+}
+.titre1{
+  margin: 10px;
+  margin-left: 20px;
+  margin-top: 40px ;
+ 
+  font-size: 16px;
+  font-weight: 900;
+  /* color: #ffbb55; */
+  
+}
+.titre2{
+ margin: 15px 20px;
+
+  font-size: 16px;
+  font-weight: 900;
+  /* color: #ffbb55; */
+
+}
+.input_dark{
+   
+    background-color: #202528;
+   color: #a3bdcc;
+  border-color: rgb(63, 62, 62);
+}
+.input_light{
+  border-color: rgb(207, 204, 204);
+}
+.erreur{
+  color: red;
+}
+@media screen and (max-width:878px) {
+  tbody tr td:nth-child(5) {
+      height: 30px;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+  }
+}
+@media screen and (max-width: 680px) {
+  .div_ajouter_cours input[type='submit']{
+    width: 103px;
+  }
+}
+@media screen and (max-width:440px) {
+  tbody tr td:nth-child(3)::before {
+      content: "Date";
+      float: left;
+      font-weight: bold;
+  }
+
+  tbody tr td:nth-child(4){
+    text-align:center;
+   
+  }
+   tbody tr td:nth-child(4)::before {
+       content: "Nombre de téléchargement";
+       /*float: left;*/
+       font-weight: bold;
+   }
+
+
+
+  tbody tr td:nth-child(2)::before {
+      content: "Nom formateur";
+      float: left;
+      font-weight: bold;
+  }
+}
+@media screen and (max-width:359px) {
+  tbody tr td:nth-child(4){
+    text-align:center;
+    height:60px;
+  }
+}

@@ -1,0 +1,398 @@
+<?php
+include 'header.php';
+
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contenu.css">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <title>Contenu de le formation</title>
+	<script src="https://kit.fontawesome.com/84ea18e375.js" crossorigin="anonymous"></script>
+	<link 
+  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+  rel="stylesheet"  type='text/css'>
+</head>
+<body>
+	<div class="cont">
+   <div class="grandContenu">
+   <!--  ontenu de la formation -->
+     <div class="formation">
+	 <div class="head-title"><i class='bx bx-task'></i><h3>Principes et fondements de l’éthique médicale :</h3></div>
+	 <br>
+	 <div class="info">Les questions induites dans la pratique médicale par l’évolution de la science et de notre société imposent une réflexion individuelle et collective qui permet de penser les conséquences des décisions et d’arbitrer des choix parfois complexes dans 
+		 les pratiques de soins ou l’organisation du système de santé. 
+		 Pr Grégoire Moutel & Guillaume Grandazzi</div>
+		 <br>
+
+		 
+		 <h4>Le sens de la démarche éthique :</h4>
+		 
+		 <div class="info">Les  questions induites dans la pratique médicale par l’évolution de la science et de notre société 
+			 (droits des patients, accès aux soins, conception de la famille, usage de la génétique, conservation des gamètes
+			  et des embryons, prélèvements d’organes, informatisation des données du dossier médical, recherche biomédicale,
+			   perte d’autonomie, fin de la vie…) imposent une réflexion individuelle et collective qui permet de penser les conséquences
+			    bonnes ou mauvaises des décisions et d’arbitrer des choix parfois complexes dans les pratiques de soins ou l’organisation du système de santé.
+
+            </div>
+
+			<br>
+			<h4>L’éthique de la responsabilité</h4>
+			
+			<div class="info">Les  questions induites dans la pratique médicale par l’évolution de la science et de notre société 
+			 (droits des patients, accès aux soins, conception de la famille, usage de la génétique, conservation des gamètes
+			  et des embryons, prélèvements d’organes, informatisation des données du dossier médical, recherche biomédicale,
+			   perte d’autonomie, fin de la vie…) imposent une réflexion individuelle et collective qui permet de penser les conséquences
+			    bonnes ou mauvaises des décisions et d’arbitrer des choix parfois complexes dans les pratiques de soins ou l’organisation du système de santé.
+
+            </div>
+
+		
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	   	<!-- SIDEBAR -->
+	  <div class="sidbar">
+	   <div id="sidebar">
+		
+		<ul class="side-menu top">
+			<li class="active">
+				<a href="#info">
+					<!-- <i class='bx bxs-dashboard' ></i> -->
+					<!-- <i class="fa-solid fa-circle-1"></i> -->
+					<!-- <i class="fa fa-circle-o fa-stack-2x"></i> -->
+					<!-- <span class="fa-stack">
+   
+    
+  
+    <strong class="fa-stack-1x">
+        N1
+    </strong>
+</span> -->
+
+					<i class='bx bx-spreadsheet'></i>			
+						
+				
+				</a>
+			</li>
+			<li>
+				<a href="#specia">
+					<!-- <i class='bx bx-task'></i > -->
+                    <i class='bx bx-spreadsheet'></i>	
+   
+
+						
+				</a>
+			</li>
+			<li>
+				<a href="#experience">
+					<!-- <i class='bx bx-spreadsheet'></i>			 -->
+					<!-- <span class="fa-stack">
+   
+    <span class="fa fa-circle-o fa-stack-2x"></span>
+  
+    <strong  style="font-size: 16px" class="fa-stack-1x">
+        N3
+    </strong>
+</span> -->
+            <i class='bx bx-spreadsheet'></i>	
+						
+				</a>
+			</li>
+			<li>
+				<a href="#description">
+				<i class='bx bx-spreadsheet'></i>
+					
+				</a>
+			</li>
+			<li>
+				<a  style="font-size: 18px; " href="#lieux">
+				<i style="font-size: 25px; "class='bx bxs-checkbox-checked'></i>		
+					
+				</a>
+			</li>
+			<li>
+				<a href="#tarif">
+				<i class='bx bx-spreadsheet'></i>		
+								
+				</a>
+			</li>
+			<li>
+				<a href="#rend">
+				<i class='bx bx-spreadsheet'></i>	
+					
+				</a>
+			</li>
+			<li>
+				<a href="#rend">
+				<i class='bx bx-spreadsheet'></i>	
+					
+				</a>
+			</li>
+			<li>
+				<a href="#rend">
+				<i class='bx bx-spreadsheet'></i>	
+					
+				</a>
+			</li>
+		</ul>
+	
+		<!-- <ul class="side-menu">
+			<li>
+				<a href="#">
+					<i class='bx bxs-cog' ></i>
+					<span class="text">Paramétre</span>
+				</a>
+			</li>
+			<li>
+				<a href="#" class="logout">
+					<i class='bx bxs-log-out-circle' ></i>
+					<span class="text">Se déconnecter</span>
+				</a>
+			</li>
+		</ul> -->
+</div>
+	   <!-- SIDEBAR -->
+		</div>
+
+   </div> 
+   
+	
+   </div>
+
+   
+   
+</body>
+<script src="script.js"></script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+___________________________________________________
+$****************************************************
+______________________________________________________
+
+
+
+:root{
+    --primary:#ffb24a; 
+    --light:#f0f0f0 ;
+    --light1: #fff;
+    --dark: #1f1b73;
+    --grey: rgb(230, 229, 229);
+    
+
+}
+
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: "Popins",sans-serif;
+    
+    /* overflow-x: hidden !important;
+    overflow-y: hidden !important; */
+
+
+    /* position:; */
+   
+    
+}
+
+
+.grandContenu {
+
+ 
+ position:relative;
+  /* perspective: 5.5cm; */
+ /* background-color: #1f1b73;
+ height: 40px;
+ width: 50px; */
+ max-width: 990px;
+ margin:  0 auto;
+ overflow: auto;
+ border-radius: 10px;
+ display: flex;
+ background: var(--grey);
+  /* overflow-y: scroll; */
+  height: 1000px;
+ box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; 
+
+justify-content: space-between;
+}
+
+/************Contenu***************/
+
+ .formation{
+     position: absolute;
+     display: flex;
+     max-width: 800px;
+     
+     flex-direction: column;
+    
+     justify-content: space-between;
+     top :25px;
+
+     left: 90px;
+     /* overflow-y: scroll; */
+    
+ }
+ .formation .head-title {
+     display: flex;
+    
+ }
+   
+ .formation .head-title i{
+     color: #ffb24a;
+     margin-top: 2px;
+ }
+ .formation .head-title h3{
+     margin: 0 4px;
+    font-size: 19px;
+    color: var(--dark);
+ }
+
+
+.formation h4{
+    margin-left: 10px;
+    color: var(--dark);
+}
+
+.formation .info{
+    margin-top: 10px;
+  text-indent: 5px;
+  text-align: justify;
+ 
+}
+
+ /**Sidebar***/
+ 
+.sidbar{
+  position: absolute;
+  top: 20px; 
+  left: 0; 
+}
+
+
+
+
+/***********************************************************/
+
+ #sidebar {
+  position: fixed;
+  /* top: 40%;
+  left: 10% ;  */
+  height: 100%;
+ z-index: 1000;
+ 
+  
+  background-color: var(--light1);
+}
+
+#sidebar .side-menu{
+  
+  width: 100%;
+  /* margin-top: 20px; */
+  border-radius: 20px;
+ 
+}
+
+#sidebar .side-menu li{
+  height: 40px;
+  background-color: transparent;
+  border-radius: 48px 2px 2px 48px;
+  margin-left: 20px;
+  padding: 4px; 
+ 
+}
+#sidebar .side-menu li.active{
+
+background-color:  var(--grey);
+position: relative;
+
+
+}
+#sidebar .side-menu li.active a{
+
+
+ color: var(--primary);
+  
+  
+  }  
+
+#sidebar .side-menu li a {
+  width: 100%;
+  height: 100%;
+  background-color: var(--light1);
+  display: flex;
+  align-items: center;
+  border-radius: 40px;
+  text-decoration: none;
+  color: var(--dark);
+}
+
+#sidebar .side-menu li a:hover{
+  color: var(--primary);
+
+}
+
+/* #sidebar .side-menu li  a{
+  /* margin-left: 4px; */
+  
+ 
+
+#sidebar .side-menu li .bx ,#sidebar .side-menu li .fa-stack .fa .fa-circle-o {
+  min-width: calc(60px - 28px);
+  display: flex;
+  justify-content: center;
+  font-size: 15px;
+  
+  
+ 
+}
+
+
+#sidebar .side-menu li .bx .bxs-checkbox-checked{
+    font-size: 20;
+}
+
+/* .fa-stack{
+  font-size: 14px;
+} */
+
+/**********************************/

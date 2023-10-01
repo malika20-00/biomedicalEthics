@@ -1,0 +1,286 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,200&display=swap");
+
+:root {
+    --primary: #88a8a6;
+    --light: #f0f0f0;
+    --light1: #fff;
+    --dark: #1f1b73;
+    --box-shadow: 0 2rem 3rem var(--color-light);
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+
+
+}
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+body,
+input {
+    font-family: "Popins", sans-serif;
+}
+
+.erreur {
+
+
+    color: red;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.panel {
+    background-image: url(contacter2.svg);
+
+
+    background-repeat: no-repeat;
+    background-size: 25%;
+    background-position-x: 100px;
+    background-position-y: 100px;
+    background-color: rgba(80, 75, 83, 0.4);
+    height: 700px;
+    width: 1260px;
+
+    background-color: var(--primary);
+    clip-path: circle(55.2% at 0 1%);
+
+    color: var(--dark);
+}
+
+.content {
+    height: 500px;
+    width: 500px;
+    background-color: var(--dark);
+    clip-path: circle(50% at 0 0);
+
+    /* position:absolute;
+    top: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+} */
+
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+}
+
+.contentD {
+    height: 500px;
+    width: 600px;
+    background-color: var(--primary);
+
+    clip-path: circle(38.1% at 0 0);
+
+}
+
+.contacter {
+
+    position: absolute;
+    left: 630px;
+    top: 40px;
+
+}
+
+@media (max-width: 1115px) {
+    .contacter {
+        left: 50%;
+    }
+}
+
+@media (max-width: 972px) {
+    .contacter {
+        left: 40%;
+    }
+
+    .panel {
+        width: 100vw;
+    }
+}
+
+.title {
+
+    margin-top: 4px;
+    font-size: 2.0rem;
+    color: var(--dark);
+    margin-bottom: 20px;
+
+}
+
+
+.formulaire {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0rem 2rem;
+    transition: all 0.2s 0.7s;
+    overflow: hidden;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+.input-field {
+    width: 320px;
+    /* width: 100%; */
+    background-color: #f0f0f0;
+    margin: 10px 0;
+    height: 50px;
+    border-radius: 55px;
+    display: grid;
+    grid-template-columns: 15% 85%;
+    padding: 0 0.3rem;
+    position: relative;
+}
+
+.input-field i {
+    text-align: center;
+    line-height: 40px;
+    color: #acacac;
+    transition: 0.5s;
+    font-size: 1.1rem;
+    margin-top: 5px;
+    font-weight: 600;
+
+}
+
+.input-field input::placeholder {
+    font-weight: 600;
+
+}
+
+
+.input-field input {
+    background: none;
+    outline: none;
+    border: none;
+    line-height: 1;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.area {
+
+
+    display: flex;
+
+    justify-content: space-around;
+    width: 400px;
+    /* width: 100%; */
+    background-color: #f0f0f0;
+    margin: 10px 0;
+
+    border-radius: 20px;
+}
+
+textarea {
+
+    font-size: 17px;
+    padding: 10px;
+    position: relative;
+    height: 200px;
+    width: 400px;
+    border-radius: 20px;
+    margin: 0;
+    background: none;
+    outline: none;
+    /* border: none;
+  } */
+
+}
+
+.btn {
+    width: 150px;
+    height: 49px;
+    border: none;
+    outline: none;
+    border-radius: 49px;
+    cursor: pointer;
+    background-color: var(--primary);
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: 0.5s;
+
+
+}
+
+.btn:hover {
+    background-color: #4d84e2;
+}
+
+
+@media (max-width: 768px) {
+    .panel {
+        clip-path: ellipse(50% 13% at 48% 0%);
+        background-image: none;
+
+    }
+
+    .contacter {
+
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media (max-width: 434px) {
+    .input-field {
+        max-width: 100%;
+
+    }
+
+    textarea {
+        background-color: #f0f0f0;
+
+        max-width: calc(100% - 40px);
+
+
+    }
+
+    .area {
+
+
+
+        max-width: calc(100%);
+
+        background-color: #fff;
+
+    }
+
+    .btn {
+        width: 100px;
+    }
+}
+
+span {
+    margin: 10px;
+    display: block;
+    color: var(--dark);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.input-field input::placeholder,
+textarea::placeholder {
+    font-family: 'Popins';
+    color: #aaa;
+    font-weight: 500;
+    font-size: 15px;
+}

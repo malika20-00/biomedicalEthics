@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>header</title>
+</head>
+<body>
+   <nav>
+       <div class="container">
+           <div class="logo"><img src="logo.svg" alt="logo">
+           <h1 class="title">title</h1></div>
+           <div class="menu">
+               <div class="lien"><i class="material-icons" >home</i><a href="#" class="ative">Accueil</a></div>
+               <div class="lien"><i class="material-icons" >message</i><a href="#" class="ative">Contactez-nous</a></div>
+               <div class="lien"><i class="material-icons" >settings</i><a href="#" class="ative">Paramètre</a> <div class="fleche" ><i class="material-icons" style="font-size:30px ; margin-top: 13px; color:#1f1b73;" onclick="afficherMenu()" >keyboard_arrow_down</i></div>
+<div class="hiddenMenu fleche" onclick="afficherMenu()" ><i class=" material-icons " style="font-size:30px; margin: auto;margin-top: 13px;"   >keyboard_arrow_up</i></div>
+</div>   
+               <div class="profil"></div>    
+           </div>
+           
+
+           <button class="btn">
+               <span></span>
+               <span></span>
+               <span></span>
+           </button>
+
+       </div>
+   </nav> 
+</body>
+<script src="header.js"></script>
+</html>
